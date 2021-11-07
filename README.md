@@ -1,4 +1,4 @@
-- 👋 Hi, I’m @Corbiegoonta
+- 👋 Hi, I’m Nicholai Corbie
 - 👀 I’m interested in ... Software Engineering and Data Science
 - 🌱 I’m currently learning ... Python
 - 💞️ I’m looking to collaborate on ... Anything
