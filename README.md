@@ -1,5 +1,5 @@
 - 👋 Hi, I’m Nicholai Corbie
-- 👀 I’m interested in ... Software Engineering and Data Science
+- 👀 I’m interested in ... Cloud Engineering, DevOps Engineering, Software Engineering and Data Science
 - 🌱 I’m currently learning ... Python
 - 💞️ I’m looking to collaborate on ... Anything
 - 📫 How to reach me ... nicholaicorbie1@gmail.com
