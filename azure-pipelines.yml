@@ -7,7 +7,7 @@ trigger:
 - main
 
 pool:
-  vmImage: ubuntu-latest
+  vmImage: CORBIEBLADE18
 
 steps:
 - script: echo Hello, world!
