@@ -26,8 +26,13 @@ stages:
             
       - job: Build
         steps:
-          - script: docker build -t corbiegoonta/code_conts:collatz1 **/Dockerfile
-            displayName: Build image
+          # - script: docker build -t corbiegoonta/code_conts:collatz1 **/Dockerfile
+          #   displayName: Build image
+          - task: ContainerBuild@0
+            inputs:
+              dockerRegistryServiceConnection: 'Docker'
+              repository: 'corbiegoonta/code_conts'
+              Dockerfile: 'Dockerfile'
       
           - script: docker push corbiegoonta/code_conts:collatz
             displayName: Push image
