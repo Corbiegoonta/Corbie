@@ -1,4 +1,8 @@
 # Starter pipeline
+# - task: PythonScript@0
+#   inputs:
+#     scriptSource: 'filePath'
+#     scriptPath: '**/collatz_unittest.py'
 # Start with a minimal pipeline that you can customize to build and deploy your code.
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
@@ -13,8 +17,20 @@ stages:
   - stage: Build_and_Test
     jobs:
       - job: Test
-
+        steps: 
+        - script: python collatz_unittest.py
+          displayName: Run unit tests
+            
       - job: Build
+        steps:
+          - script: docker build -t corbiegoonta/code_conts:collatz1 .
+            displayName: Build image
+      
+          - script: docker push corbiegoonta/code_conts:collatz
+            displayName: Push image
+          
+          - script: docker run -it corbiegoonta/code_conts:collatz
+            displayName: Run container
 
   - stage: Deploy_to_Dev
     jobs:
