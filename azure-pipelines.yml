@@ -6,8 +6,7 @@
 trigger:
 - main
 
-pool:
-  vmImage: CORBIEBLADE18
+pool: Default
 
 steps:
 - script: echo Hello, world!
