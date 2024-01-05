@@ -20,6 +20,9 @@ stages:
         steps: 
         - script: python BCA_Technical_Interview/collatz_unittest.py
           displayName: Run unit tests
+        
+        - script: python BCA_Technical_Interview/collatz_conjecture.py
+          displayName: Run collatz conjecture script
             
       - job: Build
         steps:
