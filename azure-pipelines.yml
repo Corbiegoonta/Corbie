@@ -18,17 +18,21 @@ stages:
 
   - stage: Deploy_to_Dev
     jobs:
-      - job: Deploy_to_developement
+      - deployment: Deploy_to_developement
+        environment: Development
 
   - stage: Deploy_to_Test
     jobs:
 
-      - job: Deploy_to_testing
+      - deployment: Deploy_to_testing
+        environment: Testing
 
   - stage: Deploy_to_Prod
     jobs:
 
-      - job: Deploy_to_production
+      - deployment: Deploy_to_production
+        environment: Production
+
 
 
 #   jobs:
