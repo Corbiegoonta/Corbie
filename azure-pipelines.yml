@@ -26,7 +26,7 @@ stages:
             
       - job: Build
         steps:
-          - script: docker build -t corbiegoonta/code_conts:collatz1 BCA_Technical_Interview/Dockerfile
+          - script: docker build -t corbiegoonta/code_conts:collatz1 **/Dockerfile
             displayName: Build image
       
           - script: docker push corbiegoonta/code_conts:collatz
