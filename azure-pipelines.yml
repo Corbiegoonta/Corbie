@@ -9,10 +9,10 @@ trigger:
 pool: Default
 
 stages: 
-  - stage: Build and Test
-  - stage: Deploy to Dev
-  - stage: Deploy to Test
-  - stage: Deploy to Prod
+  - stage: Build_and_Test
+  - stage: Deploy_to_Dev
+  - stage: Deploy_to_Test
+  - stage: Deploy_to_Prod
 
 
 #   jobs:
