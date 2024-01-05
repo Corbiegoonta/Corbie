@@ -18,7 +18,7 @@ stages:
     jobs:
       - job: Test
         steps: 
-        - script: python collatz_unittest.py
+        - script: python **/collatz_unittest.py
           displayName: Run unit tests
             
       - job: Build
