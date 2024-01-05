@@ -8,11 +8,34 @@ trigger:
 
 pool: Default
 
-steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
+stages: 
+  - stage: Build and Test
+  - stage: Deploy to Dev
+  - stage: Deploy to Test
+  - stage: Deploy to Prod
 
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+
+#   jobs:
+
+#   - job: Test and Build
+
+#     steps:
+#     - script: python collatz_unittest.py
+#       displayName: Run unit tests
+
+#     - script: docker build -t corbiegoonta/code_conts:collatz1 .
+#       displayName: Build image
+    
+#     - script: docker push corbiegoonta/code_conts:collatz
+#       displayName: Push image
+    
+#     - script: docker run -it corbiegoonta/code_conts:collatz
+#       displayName: Run container
+
+#     - script: echo Hello, world!
+#       displayName: 'Run a one-line script'
+
+#     - script: |
+#         echo Add other tasks to build, test, and deploy your project.
+#         echo See https://aka.ms/yaml
+#       displayName: 'Run a multi-line script'
