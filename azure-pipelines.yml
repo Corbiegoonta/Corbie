@@ -32,7 +32,7 @@ stages:
             inputs:
               dockerRegistryServiceConnection: 'Docker'
               repository: 'corbiegoonta/code_conts'
-              Dockerfile: 'Dockerfile'
+              Dockerfile: 'BCA_Technical_Interview/Dockerfile'
       
           - script: docker push corbiegoonta/code_conts:collatz
             displayName: Push image
