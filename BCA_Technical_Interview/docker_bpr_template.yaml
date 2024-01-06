@@ -1,0 +1,31 @@
+# build push and run docker container - steps template
+
+parameters:
+- name: container_registry
+  type: string
+  default: 'Docker'
+
+- name: container_repository
+  type: string 
+
+- name: dockerfile 
+  type: string
+  default: '**/Dockerfile'
+
+- name: image_tag
+  type: string 
+  default: latest
+
+
+steps:
+  - task: ContainerBuild@0
+    inputs:
+      dockerRegistryServiceConnection: ${{parameters.container_registry}}
+      repository: ${{container_repository}}
+      Dockerfile: ${{dockerfile}}
+
+  - script: docker push ${{container_repository}}:${{image_tag}}
+    displayName: Push image
+  
+  - script: docker run ${{container_repository}}:${{image_tag}}
+    displayName: Run container

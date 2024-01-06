@@ -1,0 +1,18 @@
+# deployments - job template
+
+parameters:
+- name: deployment_name
+  type: string 
+  default: Deployment
+
+- name: deployment_environment 
+  type: string
+  default: Environment 
+
+- name: deployment_dependency
+  type: string
+
+jobs: 
+  - deployment: ${{parameters.deployment_name}}
+    dependsOn: ${{parameters.deployment_dependency}}
+    environment: ${{parameters.deployment_environment}}
