@@ -37,7 +37,7 @@ stages:
           - script: docker push corbiegoonta/code_conts:collatz
             displayName: Push image
           
-          - script: docker run -it corbiegoonta/code_conts:collatz
+          - script: docker run corbiegoonta/code_conts:collatz
             displayName: Run container
 
   - stage: Deploy_to_Dev
