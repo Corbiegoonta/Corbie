@@ -42,9 +42,9 @@ stages:
             displayName: Run container
 
   - stage: Continuous_Deployment
+    dependsOn: Build
     jobs:
       - deployment: Deploy_to_development
-        dependsOn: Build
         environment: Development
 
       - deployment: Deploy_to_testing
