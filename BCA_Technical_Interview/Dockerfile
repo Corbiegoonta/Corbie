@@ -2,16 +2,8 @@ FROM python:3
 
 WORKDIR /bca
 
-RUN pwd
+COPY ./BCA_Technical_Interview /bca
 
-RUN ls
-
-COPY . .
-
-RUN pwd
-
-RUN ls
-
-# RUN pip install -r /bca/requirements.txt
+RUN pip install -r /bca/requirements.txt
 
 CMD [ "python", "collatz_conjecture.py" ]
