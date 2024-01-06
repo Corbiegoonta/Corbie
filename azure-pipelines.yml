@@ -25,6 +25,7 @@ stages:
           displayName: Run collatz conjecture script
             
       - job: Build
+        dependsOn: Test
         steps:
           # - script: docker build -t corbiegoonta/code_conts:collatz1 **/Dockerfile
           #   displayName: Build image
@@ -43,12 +44,15 @@ stages:
   - stage: Continuous_Deployment
     jobs:
       - deployment: Deploy_to_development
+        dependsOn: Build
         environment: Development
 
       - deployment: Deploy_to_testing
+        dependsOn: Deploy_to_development
         environment: Testing
 
       - deployment: Deploy_to_production
+        dependsOn: Deploy_to_testing
         environment: Production
 
 
