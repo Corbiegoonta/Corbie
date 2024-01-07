@@ -39,8 +39,15 @@ stages:
       steps:
       - task: AzureFunction@1
         inputs:
-          function: 'https://corbfunct.azurewebsites.net/api/int_func?code=2jQTrawOhFMBdt-cbiBB_OUQFD97KKAtlcEfu-iSG-IbAzFuHHLrjw=='
-          key: 'c-qC-lxXXtzNKFadiF1Ec9MuMKnPZ0ey00x0yFYdnqYJAzFujFgNTw=='
-          method: 'GET'
+          function: 'https://corbfunct.azurewebsites.net/api/big_trig'
+          key: 'ExSR6JAS_4lyuPZ-rncQV3ZPwTyzH8UInMITtVNQuuc3AzFubzx45Q=='
+          method: 'POST'
+          body: '{"name" : "corbie"}'
           waitForCompletion: 'false'
+      # - task: AzureFunction@1
+      #   inputs:
+      #     function: 'https://corbfunct.azurewebsites.net/api/int_func?code=2jQTrawOhFMBdt-cbiBB_OUQFD97KKAtlcEfu-iSG-IbAzFuHHLrjw=='
+      #     key: 'c-qC-lxXXtzNKFadiF1Ec9MuMKnPZ0ey00x0yFYdnqYJAzFujFgNTw=='
+      #     method: 'GET'
+      #     waitForCompletion: 'false'
       
