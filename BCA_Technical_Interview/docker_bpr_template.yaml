@@ -21,11 +21,11 @@ steps:
   - task: ContainerBuild@0
     inputs:
       dockerRegistryServiceConnection: ${{parameters.container_registry}}
-      repository: ${{container_repository}}
-      Dockerfile: ${{dockerfile}}
+      repository: ${{parameters.container_repository}}
+      Dockerfile: ${{parameters.dockerfile}}
 
-  - script: docker push ${{container_repository}}:${{image_tag}}
+  - script: docker push ${{parameters.container_repository}}:${{parameters.image_tag}}
     displayName: Push image
   
-  - script: docker run ${{container_repository}}:${{image_tag}}
+  - script: docker run ${{parameters.container_repository}}:${{parameters.image_tag}}
     displayName: Run container
