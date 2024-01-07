@@ -34,11 +34,13 @@ stages:
       parameters:
         deployment_name: Deploy_to_Dev
         deployment_environment: Development
+        deployment_dependency: ''
     - job: Deploy__Function
       steps:
       - task: AzureFunction@1
         inputs:
-          function: 'https://corbfunct.azurewebsites.net'
+          function: 'https://corbfunct.azurewebsites.net/api/int_func?code=2jQTrawOhFMBdt-cbiBB_OUQFD97KKAtlcEfu-iSG-IbAzFuHHLrjw=='
           key: 'c-qC-lxXXtzNKFadiF1Ec9MuMKnPZ0ey00x0yFYdnqYJAzFujFgNTw=='
           method: 'GET'
           waitForCompletion: 'false'
+      
