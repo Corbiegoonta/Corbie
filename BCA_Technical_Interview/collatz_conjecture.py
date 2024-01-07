@@ -1,3 +1,4 @@
+import sys
 from textual_summary import summary
 
 def collatz_algorithm(starting_number: int) -> int|list:
@@ -50,4 +51,4 @@ def collatz_algorithm(starting_number: int) -> int|list:
     return number_of_steps, list_of_hailstone_numbers, final_hailstone_number, starting_number
 
 if __name__ == "__main__":
-    summary(collatz_algorithm(-1))
+    summary(collatz_algorithm(int(sys.argv[1])))
