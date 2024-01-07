@@ -1,5 +1,5 @@
 variables:
-  - starting_number: 10
+  starting_number: 10
 
 trigger:
   - main
@@ -34,3 +34,11 @@ stages:
       parameters:
         deployment_name: Deploy_to_Dev
         deployment_environment: Development
+    - job: Deploy__Function
+      steps:
+      - task: AzureFunction@1
+        inputs:
+          function: 'https://corbfunct.azurewebsites.net'
+          key: 'c-qC-lxXXtzNKFadiF1Ec9MuMKnPZ0ey00x0yFYdnqYJAzFujFgNTw=='
+          method: 'GET'
+          waitForCompletion: 'false'
