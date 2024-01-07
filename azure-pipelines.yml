@@ -6,6 +6,8 @@
 # Start with a minimal pipeline that you can customize to build and deploy your code.
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
+variables:
+  starting_number: 10
 
 trigger:
 - main
@@ -18,10 +20,10 @@ stages:
     jobs:
       - job: Test
         steps: 
-        - script: python BCA_Technical_Interview/collatz_unittest.py
+        - script: python BCA_Technical_Interview/collatz_unittest.py 
           displayName: Run unit tests
         
-        - script: python BCA_Technical_Interview/collatz_conjecture.py
+        - script: python BCA_Technical_Interview/collatz_conjecture.py $(starting_number)
           displayName: Run collatz conjecture script
             
       - job: Build
