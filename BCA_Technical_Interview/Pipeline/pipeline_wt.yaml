@@ -4,8 +4,10 @@ variables:
 trigger:
   - main
 
-pool: 
-  vmImage: ubuntu-latest
+pool: default
+
+# pool:
+#   vmImage: ubuntu-latest
 
 stages:
   - stage: Continuous_Integration
