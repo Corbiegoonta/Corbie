@@ -31,10 +31,10 @@ stages:
               repository: 'corbiegoonta/code_conts'
               Dockerfile: 'BCA_Technical_Interview/Dockerfile'
               tags: collatz
-          - script: docker push corbiegoonta/code_conts
+          - script: docker push corbiegoonta/code_conts:collatz
             displayName: Push image
           
-          - script: docker run corbiegoonta/code_conts
+          - script: docker run corbiegoonta/code_conts:collatz
             displayName: Run container
 
   - stage: Continuous_Deployment
