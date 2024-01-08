@@ -6,4 +6,4 @@ COPY ./BCA_Technical_Interview /bca
 
 RUN pip install -r /bca/requirements.txt
 
-CMD [ "python", "collatz_conjecture.py" ]
+CMD [ "python", "collatz_conjecture.py", 10]
