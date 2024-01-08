@@ -24,7 +24,7 @@ stages:
           parameters: 
             container_registry: 'Docker'
             container_repository: 'corbiegoonta/code_conts'
-            dockerfile: 'BCA_Technical_Interview/Dockerfile'
+            dockerfile: 'BCA_Technical_Interview/Pipeline/Dockerfile'
             image_tag: 'collatz'
             
   - stage: Continuous_Deployment
