@@ -1,0 +1,6 @@
+GET http://localhost:7071/api/big_trig
+Connect-Type: application/json
+
+{
+    "name": "Nicholai"
+}
