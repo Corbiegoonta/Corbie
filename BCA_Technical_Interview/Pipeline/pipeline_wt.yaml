@@ -4,7 +4,8 @@ variables:
 trigger:
   - main
 
-pool: default
+pool: 
+  vmImage: ubuntu-latest
 
 stages:
   - stage: Continuous_Integration
@@ -34,3 +35,13 @@ stages:
       parameters:
         deployment_name: Deploy_to_Dev
         deployment_environment: Development
+    - template: env_deployments_template.yaml
+      parameters:
+        deployment_name: Deploy_to_Test
+        deployment_environment: Testing
+        deployment_dependency: Deploy_to_Dev
+    - template: env_deployments_template.yaml
+      parameters:
+        deployment_name: Deploy_to_Prod
+        deployment_environment: Production
+        deployment_dependency: Deploy_to_Test
