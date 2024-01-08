@@ -30,7 +30,7 @@ stages:
   - stage: Continuous_Deployment
     dependsOn: Continuous_Integration
     jobs:
-    - template: deployments_template.yaml
+    - template: env_deployments_template.yaml
       parameters:
         deployment_name: Deploy_to_Dev
         deployment_environment: Development
