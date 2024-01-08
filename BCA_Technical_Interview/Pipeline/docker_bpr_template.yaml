@@ -23,6 +23,14 @@ steps:
       dockerRegistryServiceConnection: ${{parameters.container_registry}}
       repository: ${{parameters.container_repository}}
       Dockerfile: ${{parameters.dockerfile}}
+      tags: ${{parameters.image_tag}}
+          
+  - task: Docker@2
+    inputs:
+      containerRegistry: ${{parameters.container_registry}}
+      repository: ${{parameters.container_repository}}
+      command: 'push'
+      tags: ${{parameters.image_tag}}
 
   - script: docker push ${{parameters.container_repository}}:${{parameters.image_tag}}
     displayName: Push image
