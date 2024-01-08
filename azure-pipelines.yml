@@ -37,6 +37,7 @@ stages:
               containerRegistry: 'Docker'
               repository: 'corbiegoonta/code_conts'
               command: 'push'
+              tags: collatz
 
           # - script: docker push corbiegoonta/code_conts:collatz
           #   displayName: Push image
