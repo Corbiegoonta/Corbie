@@ -29,7 +29,7 @@ stages:
             inputs:
               dockerRegistryServiceConnection: 'Docker'
               repository: 'corbiegoonta/code_conts'
-              Dockerfile: 'BCA_Technical_Interview/Dockerfile'
+              Dockerfile: 'BCA_Technical_Interview/Pipeline/Dockerfile'
               tags: collatz
           
           - task: Docker@2
