@@ -30,7 +30,7 @@ stages:
               dockerRegistryServiceConnection: 'Docker'
               repository: 'corbiegoonta/code_conts'
               Dockerfile: 'BCA_Technical_Interview/Dockerfile'
-      
+              tags: collatz
           - script: docker push corbiegoonta/code_conts
             displayName: Push image
           
