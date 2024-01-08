@@ -4,6 +4,8 @@ variables:
 trigger:
 - main
 
+# pool: default
+
 pool: 
   vmImage: ubuntu-latest
 
@@ -29,10 +31,10 @@ stages:
               repository: 'corbiegoonta/code_conts'
               Dockerfile: 'BCA_Technical_Interview/Dockerfile'
       
-          - script: docker push corbiegoonta/code_conts:latest
+          - script: docker push corbiegoonta/code_conts
             displayName: Push image
           
-          - script: docker run corbiegoonta/code_conts:latest
+          - script: docker run corbiegoonta/code_conts
             displayName: Run container
 
   - stage: Continuous_Deployment
