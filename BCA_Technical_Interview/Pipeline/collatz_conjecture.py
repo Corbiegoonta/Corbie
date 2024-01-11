@@ -48,7 +48,7 @@ def collatz_algorithm(starting_number: int) -> int|list:
     
     final_hailstone_number = hailstone_number
 
-    return number_of_steps, list_of_hailstone_numbers, final_hailstone_number, starting_number
+    return number_of_steps, list_of_hailstone_numbers, starting_number, final_hailstone_number
 
 if __name__ == "__main__":
     summary(collatz_algorithm(int(sys.argv[1])))

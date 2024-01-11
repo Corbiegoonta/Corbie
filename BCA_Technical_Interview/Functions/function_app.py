@@ -17,7 +17,8 @@ def big_trig(req: func.HttpRequest) -> func.HttpResponse:
         results = collatz_algorithm(starting_number)
         number_of_steps = results[0]
         list_of_hailstone_numbers = results[1]
-        starting_number = results[3]
+        starting_number = results[2]
+        summary = f"With a starting number of {starting_number}, the Collatz Conjecture iterated through {number_of_steps} steps producing the following hailstone numbers: \n{list_of_hailstone_numbers}"
     except TypeError as e:
         if start is None and name is not None:
             return func.HttpResponse(
@@ -34,13 +35,13 @@ def big_trig(req: func.HttpRequest) -> func.HttpResponse:
             print("Please input an integer into the start parameter.")
     if name and starting_number:    
         return func.HttpResponse(
-            f"Hello, {name}. \nThis HTTP triggered function executed successfully. \nWith a starting number of {starting_number}, the Collatz Conjecture iterated through {number_of_steps} steps producing the following hailstone numbers: \n{list_of_hailstone_numbers}",
+            f"Hello, {name}. \nThis HTTP triggered function executed successfully. \n + {summary}",
             status_code=200
             )   
     else:
         if name is None:
             return func.HttpResponse(
-                f"This HTTP triggered function executed successfully. \nWith a starting number of {starting_number}, the Collatz Conjecture iterated through {number_of_steps} steps producing the following hailstone numbers: \n{list_of_hailstone_numbers}",
+                f"This HTTP triggered function executed successfully. \n + {summary}",
                 status_code=200
             )
         
