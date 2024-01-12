@@ -100,8 +100,48 @@ class TDraw():
                 self.turtle.dot(dot_radius, random.choice(colour_list))
         self.screen.exitonclick()
 
+    def eas_forward(self):
+        self.turtle.forward(10)
+        pass
+
+    def eas_backwards(self):
+        self.turtle.right(180)
+        self.turtle.forward(10)
+        pass
+
+    def eas_cc(self):
+        self.turtle.left(10)
+        pass
+    
+    def eas_c(self):
+        self.turtle.right(10)
+        pass
+    
+    def eas_clear(self):
+        self.turtle.clear()
+        pass
+
+    def eas_undo(self):
+        self.turtle.undo()
+        pass
+
+    def etch_a_sketch(self):
+        # forward = None
+        # backwards = None
+        # counter_clockwise = None
+        # clockwise = None
+        # clear = None
+        # undo = None
+        fun = None 
+        key = None
+
+        self.screen.onkeypress(self.eas_forward, "space")
+        self.screen.listen()
+        self.screen.mainloop()
+        pass
+
     def exit(self):
         self.screen.exitonclick()
         pass
 
-TDraw().draw_spirograph(100, 10)
+TDraw().etch_a_sketch()
