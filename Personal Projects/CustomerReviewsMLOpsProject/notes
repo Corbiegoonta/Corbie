@@ -1,0 +1,11 @@
+
+@praveenvishnu17
+3 months ago
+While deploying I got an error,
+Daemon functionality is currently not supported on Windows.
+Daemon's service failed.
+I tried to create a new stack to deploy as you suggested in the video, but, I'm still facing the same issue...
+
+4 weeks ago
+On windows, we need to install WSL (linux in windows) & ubuntu distribution (any Linux dist) and then install conda along with required environment. After the successfully environment creation, run the commands as in video, it will work.
+
