@@ -1,40 +1,35 @@
-from langchain_community.document_loaders import TextLoader, CSVLoader, UnstructuredURLLoader
-from ai_utils import convert_text_file_to_utf8
+from dotenv import load_dotenv
+from ai_utils import generate_query_and_result
+import streamlit as st
 
-# file = convert_text_file_to_utf8() 
-# print(file)
+load_dotenv()
 
-def load_data_from_file(file_path):
+st.title("ChatFIN")
 
-    if file_path[-3:] == "txt":
-        loader = TextLoader(file_path)
-    elif file_path[-3:] == "csv":
-        loader = CSVLoader(file_path)
+st.sidebar.title("Finance Article URLs")
 
-    data = loader.load()
+place_holder = st.empty()
 
-    content_of_page = data[0].page_content
+place_holder.text("Provide your finance article URLs and ask a question!")
 
-    content_source = data[0].metadata["source"]
+urls = []
 
-    print(f"The content of the document is:\n{content_of_page}")
-    print(f"The source of the documentation is: {content_source}")
+for number in range(3):
+    url = st.sidebar.text_input(f"URL {number + 1}")
+    urls.append(url)
 
-    return data
+query = place_holder.text_input("Question: ")
 
-def load_data_from_url(*urls):
+if query:
+    result = generate_query_and_result(0.9, 500, query, 1000, 200, ["\n\n", "\n", " "], urls)
+    st.header("Answer: ")
+    st.write(result["answer"])
 
-    loader = UnstructuredURLLoader(urls=list(urls))
+sources = result.get("sources")
 
-    data = loader.load()
-
-    content_of_website_page = data[0].page_content
-
-    content_source = data[0].metadata["source"]
-
-    print(f"The content of the document is:\n{content_of_website_page}")
-    print(f"The source of the documentation is: {content_source}")
+if sources:
+    st.subheader("Sources: ")
+    source_list = sources.split("\n")
+    for source in source_list:
+        st.write(source)
     
-    return data
-
-load_data_from_url("https://stackoverflow.com/questions/76600384/unable-to-read-text-data-file-using-textloader-from-langchain-document-loaders-l","https://en.wikipedia.org/wiki/Sh%C5%8Dgun_(novel)")
