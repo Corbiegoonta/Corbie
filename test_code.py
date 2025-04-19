@@ -1,0 +1,8 @@
+first_line = "hello world"
+second_line = "this is the second line"
+third_line = "this is the thrid line"
+forth_line = "this is the forth line"
+fifth_line = "this is the fifth line"
+sixth_line = "this is the sixth line"
+seventh_line = "this is the seventh line"
+eighth_line = "this is the eighth line"
