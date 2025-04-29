@@ -5,3 +5,5 @@
 .funcignore
 mongo-secret.yaml
 local.settings.json
+twilio_2FA_recovery_code.txt
+PyWhatKit_DB.txt
