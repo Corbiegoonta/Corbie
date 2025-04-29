@@ -1,6 +1,8 @@
 from turtle import Turtle, Screen
 import random
 import colorgram
+import time
+import datetime
 
 class TDraw():
 
@@ -201,12 +203,94 @@ class TDraw():
 
         self.screen.exitonclick()
 
+    def snake(self, snake_speed=1, screen_length=600, screen_width=600):
+        self.screen.setup(width=screen_width, height=screen_length)
+        self.screen.bgcolor("black")
+        self.screen.title("Snake Game")
+        self.screen.colormode(255)
+        list_of_turtle_objects = []
+        # print(self.screen.tracer(1, 1))  # turn off the tracer
+        self.turtle.shape("square")
+        self.turtle.color("white")
+        list_of_turtle_objects.append(self.turtle)
+        self.turtle.penup()
+        food = self.turtle.clone()
+        food.fillcolor(0, 0, 0)
+        food.color("black")
+        food.shapesize(0.5, 0.5)
+        food.shape("circle")
+        food.penup()
+        # def move_turtle_forward(turtle):    
+        #     turtle.forward(20)  
+        for i in range(1, 3):
+            turt = self.turtle.clone()
+            turt.fillcolor(random.randint(0, 255), random.randint(0, 255), random.randint(0, 255))
+            turt.goto(-20*i, 0)
+            list_of_turtle_objects.append(turt)
+        print(list_of_turtle_objects)
+        def turn_left():
+            self.turtle.left(90)
+        def turn_right():
+            self.turtle.right(90)
+        self.turtle.speed(1)
+        snake_forward = True
+        count = 0
+        food_list = []
+        while snake_forward is True: 
+            if count > 1 and count % 20 == 0:
+                food1 = food.clone()
+                food1.goto(random.randint(-(screen_length-30)/2, (screen_length-30)/2), random.randint((-screen_width-20)/2, (screen_width-20)/2))
+                food1.color("blue")
+                food_list.append(food1)
+                print("food created")
+                # food.goto(random.randint(-screen_length/2, screen_length/2), random.randint(-screen_width/2, screen_width/2))
+                # food.color("blue")
+            xmax = self.turtle.xcor() + 10
+            xmin = self.turtle.xcor() - 10
+            ymax = self.turtle.ycor() + 10
+            ymin = self.turtle.ycor() - 10
+            for f in food_list:
+                if f.xcor() <= xmax and f.xcor() <= xmin and f.ycor() <= ymax and f.ycor() >= ymin:
+                    print("food eaten")
+                    food_list.remove(f)
+                    f.hideturtle()
+                
+            # print(f"SIZE {self.turtle.shapesize()}")
+            self.turtle.forward(20)
+            self.screen.listen()
+            # self.screen.onkeypress(self.turtle., "w")
+            # self.screen.onkeypress(self.eas_backwards, "s")
+            self.screen.onkeypress(turn_left, "a")
+            self.screen.onkeypress(turn_right, "d")
+            # self.screen.onkeypress(self.eas_clear, "space")
+            original_position = self.turtle.position()
+            print(original_position)
+            if abs(original_position[0]) > screen_length/2:
+                break
+                # self.turtle.setposition(-original_position[0], original_position[1])
+            if abs(original_position[1]) > screen_width/2:
+                break
+                # self.turtle.setposition(original_position[0], -original_position[1])
+            for seg in list_of_turtle_objects:
+                seg.goto(original_position)
+            count += 1
+        self.screen.exitonclick()
+            
+            # map(move_turtle_forward, list_of_turtle_objects)
+            
+            # else:   
+            #     for seg in list_of_turtle_objects:
+            #         seg.forward(20)
+            #         seg.right(90)
+                    # if self.screen.onkeypress(self.eas_forward, "w"):
+                    #     print("hi")
+        # self.screen.mainloop()
+        # self.turtle.setx(-1)        # self.turtle.shapesize(0.5, 0.5)
+        
         pass
-
-    
 
     def exit(self):
         self.screen.exitonclick()
         pass
 
-TDraw().turtle_race(1000, 800, 5)
+TDraw().snake()

@@ -1,0 +1,6 @@
+**pycache**
+.env
+**credentials.py
+.venv
+.funcignore
+mongo-secret.yaml

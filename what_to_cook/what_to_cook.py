@@ -44,9 +44,10 @@ while input_check is True:
                     if "" in split_content:
                         split_content.remove("")
                 meal_choice_check = True
+                chosen_meals = []
                 while meal_choice_check is True:
                     randomly_chosen_meal = random.choice(split_content)
-                    if randomly_chosen_meal == "\n" or randomly_chosen_meal == "\n":
+                    if randomly_chosen_meal == "\n" or randomly_chosen_meal == "\n" or randomly_chosen_meal in chosen_meals:
                         continue
                     else:
                         print(f"\nToday's meal to cook is {randomly_chosen_meal}!\n")
@@ -58,6 +59,7 @@ while input_check is True:
                                 choose_meal_again = input("\nWould you like to choose another meal? (Yes/No)\n").lower()
                                 if choose_meal_again == "yes":
                                     ("\nChoosing next meal....\n")
+                                    chosen_meals.append(randomly_chosen_meal)
                                 elif choose_meal_again == "no":
                                     meal_choice_check = False
                             else:

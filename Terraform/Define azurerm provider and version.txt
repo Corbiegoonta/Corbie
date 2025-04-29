@@ -1,0 +1,21 @@
+Define azurerm provider and version
+The following resources were created through the main.tf terraform file:
+resource group 
+virtual network
+netwokr security group
+network security rule
+network security group association
+public ip
+network interface
+virtual machine
+
+A public key was created using ssh-keygen 
+Template files for windows and linux vms were both created
+The host os variable which defines vm type was created in a variables.tf file
+A virtual machine was created using template file specifying vm type using the host os variable, caching, storage account type 
+Tagging was applied to each resource defining which environment it should be deployed to
+An output of public ip address of vm to command line was created.
+
+
+
+
