@@ -4,3 +4,4 @@
 .venv
 .funcignore
 mongo-secret.yaml
+local.settings.json
