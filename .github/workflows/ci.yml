@@ -31,7 +31,7 @@ jobs:
     - name: Lint with ruff
       run: |
         pip install ruff
-        ruff check AI/Finance
+        ruff check AI/Finance --fix
     # Run tests with pytest
     - name: Run tests
       run: |
