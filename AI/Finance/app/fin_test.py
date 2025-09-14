@@ -10,7 +10,12 @@ def test_health_endpoint():
     assert response.status_code == 200
     assert response.json() == {"status": "ok"}
 
-test_health_endpoint()
+def test():
+    yield range(3)
+
+print(list(test()))
+# print(list(test()))
+# print("Health endpoint test passed.")
 
 # def get_health_status():
 #     response = requests.get("http://localhost:8000/health")
