@@ -1,9 +1,132 @@
-**pycache**
+# Python
+__pycache__/
+*.pyc
+.venv/
+**/.venv/
+
+# Secrets / env
 .env
-**credentials.py
-.venv
+**/.env
+**/.env.*
+**/credentials.py
+**/twilio_2FA_recovery_code.txt
+**/mongo-secret.yaml
+**/local.settings.json
+**/PyWhatKit_DB.txt
+
+# Certs / keys
+*.pem
+*.key
+
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+tfplan
+*.tfvars
+!*.tfvars.example
+
+# Azure Functions
 .funcignore
-mongo-secret.yaml
-local.settings.json
-twilio_2FA_recovery_code.txt
-PyWhatKit_DB.txt
+
+# AWS
+.aws/
+
+# Build artifacts
+flask.zip
+# Assembled by archive_file in checkout.tf from checkout_lambda/handler.py
+# plus the shared checkout_token.py, so it is a build output like flask.zip.
+checkout.zip
+build/
+# db_bootstrap ships with pip-installed psycopg2 + a copy of the current schema; both are build outputs
+team_picker/teampicker_infra/db_bootstrap/psycopg2/
+team_picker/teampicker_infra/db_bootstrap/psycopg2_binary*/
+team_picker/teampicker_infra/db_bootstrap/psycopg2_binary.libs/
+team_picker/teampicker_infra/db_bootstrap/data_model_v6.sql
+team_picker/teampicker_infra/db_bootstrap.zip
+# team_picker/artifacts holds signed Android release bundles (.aab) kept for Play uploads.
+# They are build outputs, and at about 55 MB each they are too big to keep in git.
+team_picker/artifacts/
+
+# Data / binaries
+*.xlsx
+*.csv
+*.exe
+*.parquet
+# Sensitive docs
+*.pdf
+
+# Editor / tool
+.claude/
+.vscode/
+
+# Personal notes
+**/notes.txt
+**/AI Notes.txt
+**/ai_core_areas_list.txt
+**/house_price_prediction_steps.txt
+**/linear_regression_from_scratch.txt
+
+# Data: large, public and rebuilt by `make data`
+processed/
+interim/
+raw/
+
+# Generated outputs (copy any chart you want in the README into docs/ and commit that instead)
+reports/
+mlruns/
+mlartifacts/
+mlflow.db
+artifacts/
+
+# Secrets and local settings
+.env
+.env.*
+!.env.example
+
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+.ipynb_checkpoints/
+
+# Terraform
+infra/terraform/.terraform/
+*.tfstate
+*.tfstate.*
+*.tfvars
+crash.log
+
+# Editors and OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Secrets and credentials
+.env
+.env.*
+!.env.example
+.aws/
+*accessKeys*.csv
+*.pem
+*.key
+
+# Editor swap files (Vim copied your .env into .env.swp and .env.swn)
+*.swp
+*.swo
+*.swn
+
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfvars
