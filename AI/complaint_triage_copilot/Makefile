@@ -1,4 +1,4 @@
-.PHONY: data eda mlflow baseline
+.PHONY: data eda mlflow baseline xgboost run_all_models
 
 data:
 	uv run python -m src.copilot.data.ingest
@@ -13,3 +13,13 @@ mlflow:
 	
 baseline:
 	uv run python -X faulthandler -m models.train_baseline
+
+xgboost:
+	uv run python -X faulthandler -m models.train_xgboost
+
+run_all_models:
+	uv run python -X faulthandler -m models.train_baseline
+	uv run python -X faulthandler -m models.train_xgboost --trials 60
+
+compare_models:
+	uv run python -m models.compare_models
