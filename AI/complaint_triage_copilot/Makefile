@@ -1,4 +1,4 @@
-.PHONY: data eda mlflow baseline xgboost run_all_models
+.PHONY: data eda mlflow baseline xgboost run_all_models, finalise final compare_models
 
 data:
 	uv run python -m src.copilot.data.ingest
@@ -23,3 +23,9 @@ run_all_models:
 
 compare_models:
 	uv run python -m models.compare_models
+
+finalise:
+	uv run python -m models.finalise_model
+
+final:
+	uv run python -m models.finalise_model --final
